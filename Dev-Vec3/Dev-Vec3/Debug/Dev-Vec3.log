@@ -1,0 +1,9 @@
+﻿  main.cpp
+c:\users\ricardo\desktop\citm\gamedev\dev-vec3\dev-vec3\main.cpp(16): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\ricardo\desktop\citm\gamedev\dev-vec3\dev-vec3\main.cpp(40): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\ricardo\desktop\citm\gamedev\dev-vec3\dev-vec3\vec3.h(75): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  c:\users\ricardo\desktop\citm\gamedev\dev-vec3\dev-vec3\vec3.h(74): note: while compiling class template member function 'float vec3<int>::normalize(void) const'
+  c:\users\ricardo\desktop\citm\gamedev\dev-vec3\dev-vec3\main.cpp(28): note: see reference to function template instantiation 'float vec3<int>::normalize(void) const' being compiled
+  c:\users\ricardo\desktop\citm\gamedev\dev-vec3\dev-vec3\main.cpp(9): note: see reference to class template instantiation 'vec3<int>' being compiled
+  Dev-Vec3.vcxproj -> C:\Users\Ricardo\Desktop\CITM\GameDev\Dev-Vec3\Debug\Dev-Vec3.exe
+  Dev-Vec3.vcxproj -> C:\Users\Ricardo\Desktop\CITM\GameDev\Dev-Vec3\Debug\Dev-Vec3.pdb (Partial PDB)
