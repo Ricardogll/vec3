@@ -20,27 +20,20 @@ public:
 		z = 0;
 	}
 
-	vec3(vec3 &v) {
+	vec3(const vec3 &v) {
 		x = v.x;
 		y = v.y;
 		z= v.z;
 
 	}
 
-	vec3(Type x, Type y, Type z) {
-		this->x = x;
-		this->y = y;
-		this->z = z;
-	}
+	vec3(const Type x, const Type y, const Type z) : x(x),y(y),z(z){}
 
 	//Operators
 
 	bool operator == (const vec3 &v1) const {
 
-		if (v1.x == x && v1.y == y && v1.z == z)
-			return true;
-
-		return false;
+		return v1.x == x && v1.y == y && v1.z == z;
 	}
 
 	vec3<Type> operator + (const vec3 &v1) const {
@@ -82,9 +75,8 @@ public:
 	}
 
 	bool is_zero() const {
-		if (x == 0 && y == 0 && z == 0)
-			return true;
-		return false;
+		
+		return (x == 0 && y == 0 && z == 0);
 	}
 
 	float distance_to(const vec3 &v1) const{
