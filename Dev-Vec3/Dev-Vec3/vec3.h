@@ -14,52 +14,43 @@ public:
 
 	//Constructors
 
-	vec3() { 
-		x = 0;
-		y = 0;
-		z = 0;
-	}
+	vec3() {}
 
-	vec3(const vec3 &v) {
-		x = v.x;
-		y = v.y;
-		z= v.z;
-
-	}
+	vec3(const vec3 &vec) : x(vec.x), y(vec.y), z(vec.z) {}
 
 	vec3(const Type x, const Type y, const Type z) : x(x),y(y),z(z){}
 
 	//Operators
 
-	bool operator == (const vec3 &v1) const {
+	bool operator == (const vec3 &vec) const {
 
-		return v1.x == x && v1.y == y && v1.z == z;
+		return vec.x == x && vec.y == y && vec.z == z;
 	}
 
-	vec3<Type> operator + (const vec3 &v1) const {
-		return vec3<Type>(x + v1.x, y + v1.y, z + v1.z);
+	vec3<Type> operator + (const vec3 &vec) const {
+		return vec3<Type>(x + vec.x, y + vec.y, z + vec.z);
 	}
 
-	vec3<Type> operator - (const vec3 &v1) const {
-		return vec3<Type>(x - v1.x, y - v1.y, z - v1.z);
+	vec3<Type> operator - (const vec3 &vec) const {
+		return vec3<Type>(x - vec.x, y - vec.y, z - vec.z);
 	}
 
-	void operator += (const vec3 &v1) {
-		x = x + v1.x;
-		y = y + v1.y;
-		z = z + v1.z;
+	void operator += (const vec3 &vec) {
+		x = x + vec.x;
+		y = y + vec.y;
+		z = z + vec.z;
 	}
 
-	void operator -= (const vec3 &v1) {
-		x = x - v1.x;
-		y = y - v1.y;
-		z = z - v1.z;
+	void operator -= (const vec3 &vec) {
+		x = x - vec.x;
+		y = y - vec.y;
+		z = z - vec.z;
 	}
 
-	void operator = (const vec3 &v1) {
-		x = v1.x;
-		y = v1.y;
-		z = v1.z;
+	void operator = (const vec3 &vec) {
+		x = vec.x;
+		y = vec.y;
+		z = vec.z;
 	}
 
 	//Methods
@@ -69,23 +60,31 @@ public:
 	}
 
 	void zero() {
-		x = 0;
-		y = 0;
-		z = 0;
+		x = 0.0f;
+		y = 0.0f;
+		z = 0.0f;
 	}
 
 	bool is_zero() const {
 		
-		return (x == 0 && y == 0 && z == 0);
+		return (x == 0.0f && y == 0.0f && z == 0.0f);
 	}
 
-	float distance_to(const vec3 &v1) const{
-		vec3<Type> aux;
-		aux.x = v1.x - x;
-		aux.y = v1.y - y;
-		aux.z = v1.z - z;
+	float distance_to(const vec3 &vec) const {
+		return sqrt((vec.x - x)*(vec.x - x) + (vec.y - y)*(vec.y - y) + (vec.z - z)*(vec.z - z));
+	}
+	//	vec3<Type> aux;
+	//	aux.x = vec.x - x;
+	//	aux.y = vec.y - y;
+	//	aux.z = vec.z - z;
 
-		return sqrt(aux.x*aux.x + aux.y*aux.y + aux.z*aux.z);
+	//	return sqrt(aux.x*aux.x + aux.y*aux.y + aux.z*aux.z);
+	//}
+
+	float squared_distance(const vec3 &vec) const {
+
+		return (vec.x - x)*(vec.x - x) + (vec.y - y)*(vec.y - y) + (vec.z - z)*(vec.z - z);
+
 	}
 
 
