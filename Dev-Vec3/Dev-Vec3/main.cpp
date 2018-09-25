@@ -1,6 +1,7 @@
 #include <iostream>
 //#include <stdio.h>
 #include "vec3.h"
+#include "string.h"
 
 using namespace std;
 
@@ -41,6 +42,21 @@ int main() {
 	float dist = 0;
 	dist = v3.distance_to(v4);
 	
+	cout << "*********************************************" << endl;
+	
+	//char c1 = 'a';
+	//base_string s1(c1);
+
+	//char* cp = "asdf";
+
+	//base_string s2("resdasd");
+
+	//s2 = "loaskdk";
+
+	//base_string s3(s2);
+
+	//cout << s1.text << "\n" << s2.text << "\n" << s3.text << endl;
+
 	system("pause");
 	return 0;
 }

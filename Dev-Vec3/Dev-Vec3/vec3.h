@@ -9,7 +9,7 @@ class vec3
 public:
 	Type x, y, z;
 
-
+	
 public:
 
 	//Constructors
