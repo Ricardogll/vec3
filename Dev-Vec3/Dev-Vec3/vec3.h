@@ -28,26 +28,31 @@ public:
 	}
 
 	vec3<Type> operator + (const vec3 &vec) const {
+
 		return vec3<Type>(x + vec.x, y + vec.y, z + vec.z);
 	}
 
 	vec3<Type> operator - (const vec3 &vec) const {
+
 		return vec3<Type>(x - vec.x, y - vec.y, z - vec.z);
 	}
 
 	void operator += (const vec3 &vec) {
+
 		x = x + vec.x;
 		y = y + vec.y;
 		z = z + vec.z;
 	}
 
 	void operator -= (const vec3 &vec) {
+
 		x = x - vec.x;
 		y = y - vec.y;
 		z = z - vec.z;
 	}
 
 	void operator = (const vec3 &vec) {
+
 		x = vec.x;
 		y = vec.y;
 		z = vec.z;
@@ -56,13 +61,13 @@ public:
 	//Methods
 
 	float normalize() const {
+
 		return sqrt(x*x + y*y + z*z);
 	}
 
 	void zero() {
-		x = 0.0f;
-		y = 0.0f;
-		z = 0.0f;
+
+		x = y = z = 0.0f;
 	}
 
 	bool is_zero() const {
@@ -71,26 +76,19 @@ public:
 	}
 
 	float distance_to(const vec3 &vec) const {
+
 		return sqrt((vec.x - x)*(vec.x - x) + (vec.y - y)*(vec.y - y) + (vec.z - z)*(vec.z - z));
 	}
-	//	vec3<Type> aux;
-	//	aux.x = vec.x - x;
-	//	aux.y = vec.y - y;
-	//	aux.z = vec.z - z;
 
-	//	return sqrt(aux.x*aux.x + aux.y*aux.y + aux.z*aux.z);
-	//}
-
-	float squared_distance(const vec3 &vec) const {
+	float distance_to_squared(const vec3 &vec) const {
 
 		return (vec.x - x)*(vec.x - x) + (vec.y - y)*(vec.y - y) + (vec.z - z)*(vec.z - z);
-
 	}
-
 
 	//Utilities
 
 	void PrintVec3() {
+
 		cout << "(" << x << ", " << y << ", " << z << ") " << std::endl;
 	}
 

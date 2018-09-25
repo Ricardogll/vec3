@@ -7,7 +7,7 @@ using namespace std;
 int main() {
 
 	vec3<int> v1;
-	v1.PrintVec3();
+	//v1.PrintVec3();
 
 	v1.x = v1.y = v1.z = 2;
 	vec3<int> v2(v1);
@@ -40,7 +40,7 @@ int main() {
 	v4 = vec3<float>(2.2, 1.1, -4.4);
 	float dist = 0;
 	dist = v3.distance_to(v4);
-
+	
 	system("pause");
 	return 0;
 }
