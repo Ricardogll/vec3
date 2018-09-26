@@ -18,7 +18,7 @@ public:
 		text = &c;
 		length = 1;
 	}
-
+	
 	base_string(const char* c) {
 		if (c)
 		{

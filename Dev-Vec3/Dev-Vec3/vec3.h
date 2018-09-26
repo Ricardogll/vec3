@@ -87,10 +87,10 @@ public:
 
 	//Utilities
 
-	void PrintVec3() {
+	/*void PrintVec3() {
 
 		cout << "(" << x << ", " << y << ", " << z << ") " << std::endl;
-	}
+	}*/
 
 
 };
