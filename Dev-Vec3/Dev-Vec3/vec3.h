@@ -2,12 +2,12 @@
 #define _VEC_3_
 
 
-template<class Type>
+template<class TYPE>
 
 class vec3
 {
 public:
-	Type x, y, z;
+	TYPE x, y, z;
 
 	
 public:
@@ -18,7 +18,7 @@ public:
 
 	vec3(const vec3 &vec) : x(vec.x), y(vec.y), z(vec.z) {}
 
-	vec3(const Type x, const Type y, const Type z) : x(x),y(y),z(z){}
+	vec3(const TYPE &x, const TYPE &y, const TYPE &z) : x(x),y(y),z(z){}
 
 	//Operators
 
@@ -27,35 +27,38 @@ public:
 		return vec.x == x && vec.y == y && vec.z == z;
 	}
 
-	vec3<Type> operator + (const vec3 &vec) const {
+	vec3<TYPE> operator + (const vec3 &vec) const {
 
-		return vec3<Type>(x + vec.x, y + vec.y, z + vec.z);
+		return vec3<TYPE>(x + vec.x, y + vec.y, z + vec.z);
 	}
 
-	vec3<Type> operator - (const vec3 &vec) const {
+	vec3<TYPE> operator - (const vec3 &vec) const {
 
-		return vec3<Type>(x - vec.x, y - vec.y, z - vec.z);
+		return vec3<TYPE>(x - vec.x, y - vec.y, z - vec.z);
 	}
 
-	void operator += (const vec3 &vec) {
+	vec3 operator += (const vec3 &vec) {
 
-		x = x + vec.x;
-		y = y + vec.y;
-		z = z + vec.z;
+		x += vec.x;
+		y += vec.y;
+		z += vec.z;
+		return *this;
 	}
 
-	void operator -= (const vec3 &vec) {
+	vec3 operator -= (const vec3 &vec) {
 
-		x = x - vec.x;
-		y = y - vec.y;
-		z = z - vec.z;
+		x -= vec.x;
+		y -= vec.y;
+		z -= vec.z;
+		return *this;
 	}
 
-	void operator = (const vec3 &vec) {
+	vec3 operator = (const vec3 &vec) {
 
 		x = vec.x;
 		y = vec.y;
 		z = vec.z;
+		return *this;
 	}
 
 	//Methods
@@ -77,20 +80,13 @@ public:
 
 	float distance_to(const vec3 &vec) const {
 
-		return sqrt((vec.x - x)*(vec.x - x) + (vec.y - y)*(vec.y - y) + (vec.z - z)*(vec.z - z));
+		return sqrtf((vec.x - x)*(vec.x - x) + (vec.y - y)*(vec.y - y) + (vec.z - z)*(vec.z - z));
 	}
 
-	float distance_to_squared(const vec3 &vec) const {
+	TYPE distance_to_squared(const vec3 &vec) const {
 
 		return (vec.x - x)*(vec.x - x) + (vec.y - y)*(vec.y - y) + (vec.z - z)*(vec.z - z);
 	}
-
-	//Utilities
-
-	/*void PrintVec3() {
-
-		cout << "(" << x << ", " << y << ", " << z << ") " << std::endl;
-	}*/
 
 
 };

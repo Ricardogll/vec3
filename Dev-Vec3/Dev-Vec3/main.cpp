@@ -57,6 +57,13 @@ int main() {
 
 	//cout << s1.text << "\n" << s2.text << "\n" << s3.text << endl;
 
+	/*vec3<float> v1(1, 2, 3);
+	vec3<float> v2(2, 3, 4);
+
+	v1 += v2;
+	v2 = v1;
+	v1.distance_to(v2);*/
+
 	system("pause");
 	return 0;
 }
