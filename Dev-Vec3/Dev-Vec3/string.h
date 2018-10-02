@@ -47,7 +47,7 @@ public:
 
 
 
-	void operator = (const char* c) {
+	base_string operator = (const char* c) {
 		unsigned int i = 0;
 		while (c[i] != '\0')
 			i++;
@@ -57,8 +57,16 @@ public:
 			text[j] = c[j];
 
 		length = i;
+
+		return *this;
 	}
 
+	base_string operator = (base_string &str) {
+		
+		text = str.text;
+		length = str.length;
+		return *this;
+	}
 	
 };
 

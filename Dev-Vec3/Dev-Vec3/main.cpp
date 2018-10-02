@@ -44,17 +44,20 @@ int main() {
 	//
 	//cout << "*********************************************" << endl;
 	
-	//char c1 = 'a';
-	//base_string s1(c1);
+	/*char c1 = 'a';
+	base_string s1(c1);
 
-	//char* cp = "asdf";
+	char* cp = "asdf";
 
-	//base_string s2("resdasd");
+	base_string s2("resdasd");
 
-	//s2 = "loaskdk";
+	s2 = "loaskdk";
 
-	//base_string s3(s2);
+	base_string s3(s2);
 
+	base_string a;
+
+	a = s3;*/
 	//cout << s1.text << "\n" << s2.text << "\n" << s3.text << endl;
 
 	/*vec3<float> v1(1, 2, 3);
