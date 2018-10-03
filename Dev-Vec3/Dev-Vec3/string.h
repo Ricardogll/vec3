@@ -1,13 +1,13 @@
 #ifndef _STRING_
 #define _STRING_
 
-#include <iostream>
+#include<assert.h>
 
 class base_string
 {
 private:
-	char* text;
-	unsigned int length = 0u;
+	char* text = nullptr;
+	unsigned int allocated_memory = 0u;
 
 public:
 	
@@ -16,10 +16,11 @@ public:
 
 	base_string(char c) {
 		text = &c;
-		length = 1;
+		allocated_memory = 1;
 	}
 	
 	base_string(const char* c) {
+		assert(c != nullptr);
 		if (c)
 		{
 			unsigned int i = 0;
@@ -28,43 +29,57 @@ public:
 			
 			text = new char[i];
 
-			/*for (unsigned int j = i; j >= 0; j--)
-				text[j] = c[j];*/
 			for (unsigned int j = 0; j <= i; j++)
 				text[j] = c[j];
 			
-			length = i;
+			allocated_memory = i;
 		}
 		else
 		{
-			length = 0;
+			allocated_memory = 0;
 			text = new char[0];
 		}
 	}
 
-	base_string(const base_string &str) :text(str.text), length(str.length) {}
+	base_string(const base_string &str) :text(str.text), allocated_memory(str.allocated_memory) {}
 
+	~base_string() {
+		if (text != nullptr) {
+			text = nullptr;
+			allocated_memory = 0;
+			delete[] text;
+			
+		}
 
+		
+	}
 
 
 	base_string operator = (const char* c) {
-		unsigned int i = 0;
-		while (c[i] != '\0')
-			i++;
+		if (c != nullptr) {
+			unsigned int i = 0;
+			while (c[i] != '\0')
+				i++;
 
-		text = new char[i];
-		for (unsigned int j = 0; j <= i; j++)
-			text[j] = c[j];
 
-		length = i;
+			if (i > allocated_memory) {
+				delete[] text;
 
+
+				text = new char[i];
+			}
+			for (unsigned int j = 0; j <= i; j++)
+				text[j] = c[j];
+
+			allocated_memory = i;
+		}
 		return *this;
 	}
 
 	base_string operator = (base_string &str) {
 		
 		text = str.text;
-		length = str.length;
+		allocated_memory = str.allocated_memory;
 		return *this;
 	}
 	
