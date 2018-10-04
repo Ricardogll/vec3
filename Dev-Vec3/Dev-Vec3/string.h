@@ -83,6 +83,33 @@ public:
 		return *this;
 	}
 	
+
+	base_string operator +(const base_string &str) {
+
+		unsigned int memory_for_both = str.allocated_memory + allocated_memory;
+		char* aux = str.text;
+
+		unsigned int i = 0;
+		while (str.text[i] != '\0')
+			i++;
+		
+
+
+
+		delete[] text;
+		text = new char[memory_for_both];
+
+		text = aux;
+		for (unsigned int j = 0; j <= i; j ++) {
+			text[j + allocated_memory] = str.text[j];
+
+		}
+
+		allocated_memory = memory_for_both;
+
+		return *this;
+	}
+
 };
 
 #endif // !_STRING_

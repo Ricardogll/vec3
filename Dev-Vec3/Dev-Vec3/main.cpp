@@ -61,6 +61,7 @@ int main() {
 	a = "aaa";
 	s3 = "bbb";
 	s2 = "ccc";
+	a = s2 + s3;
 	//cout << s1.text << "\n" << s2.text << "\n" << s3.text << endl;
 
 	/*vec3<float> v1(1, 2, 3);
